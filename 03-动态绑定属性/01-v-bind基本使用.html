@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <img v-bind:src="imgSrc" alt="" />
+      <hr />
+      <a v-bind:href="aHref">百度一下</a>
+      <hr />
+      <!-- 语法糖 -->
+      <img :src="imgSrc" alt="" />
+      <hr />
+      <a :href="aHref">百度一下</a>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/2.7.10/vue.min.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          imgSrc: "http://placekitten.com/600/400",
+          aHref: "http://www.baidu.com",
+        },
+      });
+    </script>
+  </body>
+</html>
