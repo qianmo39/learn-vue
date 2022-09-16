@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <label for="agree">
+        <input id="agree" type="checkbox" v-model="isAgree" /> 同意协议
+      </label>
+      <h2>你的选择: {{isAgree}}</h2>
+      <button :disabled="!isAgree">下一步</button>
+      <hr />
+      <label for="sing">
+        <input type="checkbox" v-model="hobbies" id="sing" value="唱" /> 唱
+      </label>
+      <label for="jump">
+        <input type="checkbox" v-model="hobbies" id="jump" value="跳" /> 跳
+      </label>
+      <label for="rap">
+        <input type="checkbox" v-model="hobbies" id="rap" value="rap" /> rap
+      </label>
+      <label for="basketball">
+        <input type="checkbox" v-model="hobbies" id="basketball" value="篮球" />
+        篮球
+      </label>
+      <label for="music">
+        <input type="checkbox" v-model="hobbies" id="music" value="music" />
+        music
+      </label>
+      <h2>{{hobbies}}</h2>
+      <label v-for="item in originHobbies" :for="item">
+        <input type="checkbox" :id="item" :value="item" v-model="hobbies">{{item}}
+      </label>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/2.7.10/vue.min.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          isAgree: false,
+          hobbies: [],
+          originHobbies: ["唱", "跳", "rap", "篮球", "music"],
+        },
+      });
+    </script>
+  </body>
+</html>
