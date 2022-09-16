@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="item in letters">{{item}}</li>
+      </ul>
+      <button @click="btnClick">button</button>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/2.7.10/vue.min.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          letters: ["A", "B", "C", "D", "E"],
+        },
+        methods: {
+          btnClick() {
+            // this.letters.push("F", "G", "H");
+            // this.letters.pop();
+            // this.letters.shift();
+            // this.letters.unshift("F", "G", "H");
+            // this.letters.splice(1);
+            // this.letters.splice(1, 2);
+            // this.letters.splice(1, 2, "F", "G");
+            // this.letters.splice(1, 0, "F", "G")
+            // this.letters[1] = "BBB";
+            Vue.set(this.letters, 2, "CCC");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
