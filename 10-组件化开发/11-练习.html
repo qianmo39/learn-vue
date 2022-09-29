@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>count: {{count}}</h2>
+      <cpn @decrement="cpnClick" @increment="cpnClick"></cpn>
+    </div>
+    <template id="cpn">
+      <div>
+        <button @click="decrement">-</button>
+        <button @click="increment">+</button>
+      </div>
+    </template>
+    <script src="https://cdn.staticfile.org/vue/2.7.10/vue.js"></script>
+    <script>
+      const cpn = {
+        template: "#cpn",
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        methods: {
+          decrement() {
+            this.count--;
+            this.$emit("decrement", this.count);
+          },
+          increment() {
+            this.count++;
+            this.$emit("increment", this.count);
+          },
+        },
+      };
+      const app = new Vue({
+        el: "#app",
+        data: {
+          count: 0,
+        },
+        components: {
+          cpn,
+        },
+        methods: {
+          cpnClick(count) {
+            this.count = count;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

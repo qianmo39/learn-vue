@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <cpn2></cpn2>
+      <cpn1></cpn1>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/2.7.10/vue.min.js"></script>
+    <script>
+      const cpnConstructor1 = Vue.extend({
+        template: `
+          <div>
+            <h1>Hi, World!</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ratione reiciendis quae vero recusandae rem voluptas deleniti obcaecati sint. Sapiente illum in assumenda ducimus vitae ipsum eos ab nemo repudiandae?</p>
+          </div>
+        `,
+      });
+
+      const cpnConstructor2 = Vue.extend({
+        template: `
+          <div>
+            <h1>Hello, World!</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ratione reiciendis quae vero recusandae rem voluptas deleniti obcaecati sint. Sapiente illum in assumenda ducimus vitae ipsum eos ab nemo repudiandae?</p>
+            <cpn1></cpn1>
+          </div>
+        `,
+        components: {
+          cpn1: cpnConstructor1,
+        },
+      });
+
+      const app = new Vue({
+        el: "#app",
+        components: {
+          cpn2: cpnConstructor2,
+        },
+      });
+    </script>
+  </body>
+</html>

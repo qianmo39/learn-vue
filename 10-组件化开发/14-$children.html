@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <cpn></cpn>
+      <cpn></cpn>
+      <cpn></cpn>
+      <button @click="btnClick">button</button>
+    </div>
+    <template id="cpn">
+      <div>
+        <h2>Hello, World!</h2>
+      </div>
+    </template>
+    <script src="https://cdn.staticfile.org/vue/2.7.10/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        methods: {
+          btnClick() {
+            for (let i of this.$children) {
+              i.hello();
+              console.log(i.name);
+            }
+          },
+        },
+        components: {
+          cpn: {
+            template: "#cpn",
+            methods: {
+              hello() {
+                console.log("Hello");
+              },
+            },
+            data() {
+              return {
+                name: "Hi",
+              };
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

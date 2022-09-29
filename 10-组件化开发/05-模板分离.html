@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <cpn1></cpn1>
+      <cpn2></cpn2>
+    </div>
+    <script type="text/x-template" id="cpn1">
+      <div>
+        <h1>Hello, World!</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum cum mollitia veniam facilis illum quia, id magni dignissimos dolorum temporibus accusamus dolorem dolore tempora sed velit alias tenetur! Quia, consequatur?</p>
+      </div>
+    </script>
+    <template id="cpn2">
+      <div>
+        <h1>Hi, World!</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+          molestias ab officiis, et accusantium facilis similique est iusto
+          magni doloribus ex doloremque soluta animi cum ut blanditiis
+          repellendus labore sunt!
+        </p>
+      </div>
+    </template>
+    <script src="https://cdn.staticfile.org/vue/2.7.10/vue.min.js"></script>
+    <script>
+      Vue.component("cpn1", {
+        template: "#cpn1",
+      });
+
+      const app = new Vue({
+        el: "#app",
+        components: {
+          cpn2: {
+            template: "#cpn2",
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

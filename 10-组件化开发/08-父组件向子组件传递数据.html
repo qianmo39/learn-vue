@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <cpn :ctitle="title" :cfruits="fruits"></cpn>
+    </div>
+    <template id="cpn">
+      <div>
+        <h2>{{ctitle}}</h2>
+        <ul>
+          <li v-for="item in cfruits">{{item}}</li>
+        </ul>
+      </div>
+    </template>
+    <script src="https://cdn.staticfile.org/vue/2.7.10/vue.js"></script>
+    <script>
+      const cpn = {
+        template: "#cpn",
+        props: {
+          ctitle: {
+            type: String,
+            required: true,
+          },
+          cfruits: {
+            type: Array,
+            required: true,
+          },
+        },
+      };
+      const app = new Vue({
+        el: "#app",
+        data: {
+          title: "Hello, World!",
+          fruits: ["香蕉", "苹果", "橘子", "葡萄"],
+        },
+        components: {
+          cpn,
+        },
+      });
+    </script>
+  </body>
+</html>

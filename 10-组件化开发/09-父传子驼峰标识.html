@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <cpn :c-student="student" :to-child-message="toChildMessage"></cpn>
+    </div>
+    <template id="cpn">
+      <div>
+        <h2>{{cStudent}}</h2>
+        <h2>{{toChildMessage}}</h2>
+      </div>
+    </template>
+    <script src="https://cdn.staticfile.org/vue/2.7.10/vue.js"></script>
+    <script>
+      const cpn = {
+        template: "#cpn",
+        props: {
+          cStudent: Object,
+          toChildMessage: String,
+        },
+      };
+      const app = new Vue({
+        el: "#app",
+        data: {
+          student: {
+            name: "Jack",
+            age: "24",
+            score: 66.6,
+          },
+          toChildMessage: "Hello, World!",
+        },
+        components: {
+          cpn,
+        },
+      });
+    </script>
+  </body>
+</html>
